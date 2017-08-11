@@ -790,10 +790,31 @@ label:hover{
 }
 .infoPanel {
 	position: absolute;
+	z-index: 100;
+}
+.centred {
+	text-align: center;
 }
 #toggleRotContainer {
-	top: 1%;
+	top: 3%;
 	right: 1%;
 	color: white;
-	z-index: 100;
+	background: #4692ff;
+	border-radius: 10px;
+	padding: 0 1%;
+}
+#title {
+	top: 2%;
+	left: 40%;
+	width: 20%;
+	color: white;
+}
+#info {
+	top: 3%;
+	left: 3%;
+	color: white;
+	font-size: 1.2vw;
+}
+#info img {
+	width: 25%;
 }

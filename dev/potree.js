@@ -14020,12 +14020,14 @@ Potree.Viewer = class PotreeViewer extends THREE.EventDispatcher{
         //this.scene.scene.add(box);
 
 		let object = this.scene.pointclouds[0];
-        object.position.set(-11000, -19000, 0);
+		const OFFSET_X = -11000, OFFESET_Y = -19000, OFFSET_Z = 0;
+        object.position.set(OFFSET_X, OFFESET_Y, OFFSET_Z);
 
         this.scene.scenePointCloud.rotation.x = -Math.PI/4;
 
         let camera = this.scene.camera;
-        camera.position.set(0, 0, 25000);
+        const CAMERA_Z = 20000;
+        camera.position.set(0, 0, CAMERA_Z);
 	}
 
 	setTopView(){
@@ -14180,58 +14182,22 @@ Potree.Viewer = class PotreeViewer extends THREE.EventDispatcher{
 //------------------------------------------------------------------------------------
 
 	createControls(){
-		{ // create FIRST PERSON CONTROLS
-			//DEBUG
-            this.controls = new THREE.TrackballControls(this.scene.camera, this.renderArea);
-            this.controls.rotateSpeed = 1.0;
-            this.controls.zoomSpeed = 1.0;
-            this.controls.panSpeed = 1.0;
+        this.controls = new THREE.TrackballControls(this.scene.camera, this.renderArea);
+        this.controls.rotateSpeed = 1.0;
+        this.controls.zoomSpeed = 1.0;
+        this.controls.panSpeed = 1.0;
 
-            this.controls.staticMoving = true;
-            this.controls.dynamicDampingFactor = 0.3;
+        this.controls.noPan = true;
+        this.controls.noRoll = true;
+        this.controls.noRotate = true;
 
-            this.controls.keys = [ 65, 83, 68 ];
+        this.controls.staticMoving = true;
+        this.controls.dynamicDampingFactor = 0.3;
+		this.controls.keys = [ 65, 83, 68 ];
 
-            const LOOK_X = 0, LOOK_Y = 15, LOOK_Z = 0;
-            let lookAt = new THREE.Vector3(LOOK_X, LOOK_Y, LOOK_Z);
-            this.controls.setLookAt(lookAt);
-			return;
-			this.fpControls = new Potree.FirstPersonControls(this);
-			this.fpControls.enabled = false;
-			this.fpControls.addEventListener("start", this.disableAnnotations.bind(this));
-			this.fpControls.addEventListener("end", this.enableAnnotations.bind(this));
-			//this.fpControls.addEventListener("double_click_move", (event) => {
-			//	let distance = event.targetLocation.distanceTo(event.position);
-			//	this.setMoveSpeed(Math.pow(distance, 0.4));
-			//});
-			//this.fpControls.addEventListener("move_speed_changed", (event) => {
-			//	this.setMoveSpeed(this.fpControls.moveSpeed);
-			//});
-		}
-		
-		//{ // create GEO CONTROLS
-		//	this.geoControls = new Potree.GeoControls(this.scene.camera, this.renderer.domElement);
-		//	this.geoControls.enabled = false;
-		//	this.geoControls.addEventListener("start", this.disableAnnotations.bind(this));
-		//	this.geoControls.addEventListener("end", this.enableAnnotations.bind(this));
-		//	this.geoControls.addEventListener("move_speed_changed", (event) => {
-		//		this.setMoveSpeed(this.geoControls.moveSpeed);
-		//	});
-		//}
-	
-		{ // create ORBIT CONTROLS
-			this.orbitControls = new Potree.OrbitControls(this);
-			this.orbitControls.enabled = false;
-			this.orbitControls.addEventListener("start", this.disableAnnotations.bind(this));
-			this.orbitControls.addEventListener("end", this.enableAnnotations.bind(this));
-		}
-		
-		{ // create EARTH CONTROLS
-			this.earthControls = new Potree.EarthControls(this);
-			this.earthControls.enabled = false;
-			this.earthControls.addEventListener("start", this.disableAnnotations.bind(this));
-			this.earthControls.addEventListener("end", this.enableAnnotations.bind(this));
-		}
+        const LOOK_X = 0, LOOK_Y = 0.1, LOOK_Z = 0;
+        let lookAt = new THREE.Vector3(LOOK_X, LOOK_Y, LOOK_Z);
+        this.controls.setLookAt(lookAt);
 	};
 
 	toggleSidebar(){
@@ -14578,9 +14544,9 @@ Potree.Viewer = class PotreeViewer extends THREE.EventDispatcher{
 		}
 		
 		camera.fov = this.fov;
+
 		this.controls.update();
-		//
-		
+
 		this.dispatchEvent({
 			"type": "update", 
 			"delta": delta, 

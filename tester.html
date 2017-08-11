@@ -17,7 +17,7 @@
   
 	<script src="libs/jquery/jquery-3.1.1.js"></script>
 	<script src="libs/three.js/build/three.js"></script>
-	<script src="libs/three.js/build/TrackballControls.js"></script>
+	<script src="libs/three.js/build/TrackballControls.js?v=0.1"></script>
 	<script src="libs/bootstrap/bootstrap.min.js"></script>
 	<script src="libs/other/stats.min.js"></script>
 	<script src="libs/other/BinaryHeap.js"></script>
@@ -29,6 +29,15 @@
     <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
 		<div id="potree_render_area"></div>
     </div>
+
+	<div id="info" class="infoPanel">
+		<span>Powered by <a href="http://www.potree.org" target="_blank">Potree</a></span>
+		<img src="images/info.png">
+	</div>
+
+	<div id="title" class="infoPanel centred">
+		<h1>Mount St Helens</h1>
+	</div>
 
 	<div id="toggleRotContainer" class="infoPanel">
 		<div class="checkbox">
