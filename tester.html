@@ -9,7 +9,7 @@
 
 	  <link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css">
 	  <link rel="stylesheet" href="libs/bootstrap/bootstrap-theme.min.css">
-	<link rel="stylesheet" type="text/css" href="libs/potree/potree.css">
+	<link rel="stylesheet" type="text/css" href="potree/potree.css">
 
   </head>
 
@@ -22,7 +22,7 @@
 	<script src="libs/other/stats.min.js"></script>
 	<script src="libs/other/BinaryHeap.js"></script>
 	<script src="libs/proj4/proj4.js"></script>
-	<script src="libs/potree/potree.js"></script>
+	<script src="potree/potree.js"></script>
 	<script src="libs/plasio/js/laslaz.js"></script>
 	<script src="libs/plasio/vendor/bluebird.js"></script>
 
@@ -32,7 +32,14 @@
 
 	<div id="info" class="infoPanel">
 		<span>Powered by <a href="http://www.potree.org" target="_blank">Potree</a></span>
-		<img src="images/info.png">
+		<img id="infoImage" src="images/info.png">
+	</div>
+
+	<div id="hoverInfo" class="infoPanel noDisplay">
+		<p>
+			The data was obtained from <br> www.liblas.org/samples in compressed las format. It depicts Mt St Helens from November 2004.
+			The rendering utilsed the excellent Potree library (www.potree.org).
+		</p>
 	</div>
 
 	<div id="title" class="infoPanel centred">
@@ -72,7 +79,13 @@
 			//viewer.fitToScreen();
 			viewer.initScene();
 		});
-		
+
+		$('#infoImage').hover( () => {
+			$('#hoverInfo').show();
+		}, () => {
+		    $('#hoverInfo').hide();
+		});
+
 	</script>
 	
 	
