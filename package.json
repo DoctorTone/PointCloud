@@ -1,0 +1,24 @@
+{
+  "name": "pointcloud",
+  "version": "1.0.0",
+  "description": "Point cloud rendering",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DoctorTone/PointCloud.git"
+  },
+  "author": "Dr Tony Glover",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DoctorTone/PointCloud/issues"
+  },
+  "homepage": "https://github.com/DoctorTone/PointCloud#readme",
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0"
+  }
+}
