@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="author" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Potree Viewer</title>
+	  <meta charset="UTF-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+	  <title>Potree Viewer</title>
 	  
-	<link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css">
-	<link rel="stylesheet" href="libs/bootstrap/bootstrap-theme.min.css">
-	<link rel="stylesheet" type="text/css" href="potree/potree.css">
+      <link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css">
+      <link rel="stylesheet" href="libs/bootstrap/bootstrap-theme.min.css">
+      <link rel="stylesheet" type="text/css" href="potree/potree.css">
+
+      <script src="libs/jquery/jquery-3.1.1.js"></script>
+      <script src="libs/three.js/build/three.js"></script>
+      <script src="libs/three.js/build/TrackballControls.js?v=0.1"></script>
+      <script src="libs/bootstrap/bootstrap.min.js"></script>
+      <script src="libs/other/stats.min.js"></script>
+      <script src="libs/other/BinaryHeap.js"></script>
+      <script src="libs/proj4/proj4.js"></script>
+      <script src="potree/potree.js"></script>
+      <script src="libs/plasio/js/laslaz.js"></script>
+      <script src="libs/plasio/vendor/bluebird.js"></script>
 
   </head>
 
   <body>
-  
-	<script src="libs/jquery/jquery-3.1.1.js"></script>
-	<script src="libs/three.js/build/three.js"></script>
-	<script src="libs/three.js/build/TrackballControls.js?v=0.1"></script>
-	<script src="libs/bootstrap/bootstrap.min.js"></script>
-	<script src="libs/other/stats.min.js"></script>
-	<script src="libs/other/BinaryHeap.js"></script>
-	<script src="libs/proj4/proj4.js"></script>
-	<script src="potree/potree.js"></script>
-	<script src="libs/plasio/js/laslaz.js"></script>
-	<script src="libs/plasio/vendor/bluebird.js"></script>
-
     <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
 		<div id="potree_render_area"></div>
     </div>
