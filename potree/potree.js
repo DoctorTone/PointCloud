@@ -1,5 +1,5 @@
 
-
+const ZOOM_SPEED = 750;
 
 function Potree(){
 
@@ -14016,6 +14016,9 @@ Potree.Viewer = class PotreeViewer extends THREE.EventDispatcher{
 	};
 
 	initScene() {
+        this.zoomingOut = false;
+        this.zoomingIn = false;
+
         //DEBUG
         let geom = new THREE.BoxBufferGeometry(500, 500, 15000);
         let mat = new THREE.MeshLambertMaterial( {color: 0x0000ff});
@@ -14033,13 +14036,13 @@ Potree.Viewer = class PotreeViewer extends THREE.EventDispatcher{
         camera.position.set(0, 0, CAMERA_Z);
 	}
 
-	zoomOut(status) {
-		this.scene.scenePointCloud.position.z -= 1000;
+	zoomOut(zoom) {
+        this.zoomingOut = zoom;
 	}
 
-	zoomIn(status) {
-        this.scene.scenePointCloud.position.z += 1000;
-	}
+	zoomIn(zoom) {
+        this.zoomingIn = zoom;
+    }
 
 	setTopView(){
 		this.scene.view.yaw = 0;
@@ -14470,6 +14473,14 @@ Potree.Viewer = class PotreeViewer extends THREE.EventDispatcher{
 
 		if($('#toggleRot').is(":checked")) {
             this.scene.scenePointCloud.rotation.z += Math.PI/3000;
+		}
+
+		if(this.zoomingIn) {
+			this.scene.scenePointCloud.position.z += ZOOM_SPEED * delta;
+		}
+
+		if(this.zoomingOut) {
+            this.scene.scenePointCloud.position.z -= ZOOM_SPEED * delta;
 		}
 
 		for(let pointcloud of this.scene.pointclouds){
