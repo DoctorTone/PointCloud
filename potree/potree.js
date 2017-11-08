@@ -6122,6 +6122,9 @@ Potree.GeoControls = function ( object, domElement ) {
 	function onMouseWheel(event) {
 		if ( scope.enabled === false || scope.noZoom === true ) return;
 
+		//DEBUG
+		console.log("Event = ", event);
+
 		event.preventDefault();
 
 		var direction = (event.detail<0 || event.wheelDelta>0) ? 1 : -1;
@@ -14028,6 +14031,14 @@ Potree.Viewer = class PotreeViewer extends THREE.EventDispatcher{
         let camera = this.scene.camera;
         const CAMERA_Z = 20000;
         camera.position.set(0, 0, CAMERA_Z);
+	}
+
+	zoomOut(status) {
+		this.scene.scenePointCloud.position.z -= 1000;
+	}
+
+	zoomIn(status) {
+        this.scene.scenePointCloud.position.z += 1000;
 	}
 
 	setTopView(){

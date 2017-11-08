@@ -43,7 +43,7 @@
 	</div>
 
 	<div id="title" class="infoPanel centred">
-		<h1>Mount St Helens</h1>
+		<p>Mount St Helens</p>
 	</div>
 
 	<div id="toggleRotContainer" class="infoPanel">
@@ -51,6 +51,13 @@
 			<label><input id="toggleRot" type="checkbox" checked>Toggle Rotation</label>
 		</div>
 	</div>
+
+	<div id="zoomControl" class="infoPanel centred">
+		<p>Zoom</p>
+		<button id="zoomOut" type="button" class="btn btn-primary"><img src="images/minus.png"></button>
+		<button id="zoomIn" type="button" class="btn btn-primary"><img src="images/add.png"></button>
+	</div>
+
 	<script>
 	
 		window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
@@ -78,6 +85,21 @@
 			material.shape = Potree.PointShape.SQUARE;
 			//viewer.fitToScreen();
 			viewer.initScene();
+            $('#zoomOut').on("mousedown", () => {
+                viewer.zoomOut(true);
+            });
+
+            $('#zoomOut').on("mouseup", () => {
+                viewer.zoomOut(false);
+            });
+
+            $('#zoomIn').on("mousedown", () => {
+                viewer.zoomIn(true);
+            });
+
+            $('#zoomIn').on("mouseup", () => {
+                viewer.zoomIn(false);
+            });
 		});
 
 		$('#infoImage').hover( () => {
