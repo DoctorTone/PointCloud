@@ -13704,7 +13704,15 @@ Potree.Viewer = class PotreeViewer extends THREE.EventDispatcher{
 	setDescription(value){
 		$('#potree_description')[0].innerHTML = value;
 	};
-	
+
+    stopNotifications(list) {
+        for(let i=0, numElems=list.length; i<numElems; ++i) {
+            $('#' + list[i]).contextmenu(() => {
+                return false;
+            });
+        }
+    };
+
 	setNavigationMode(value){
 		this.scene.view.navigationMode = value;
 	};
