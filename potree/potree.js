@@ -1,5 +1,7 @@
 
 const ZOOM_SPEED = 750;
+const PORTRAIT_CAMERA_Z = 40000;
+const LANDSCAPE_CAMERA_Z = 20000;
 
 function Potree(){
 
@@ -14026,14 +14028,19 @@ Potree.Viewer = class PotreeViewer extends THREE.EventDispatcher{
         //this.scene.scene.add(box);
 
 		let object = this.scene.pointclouds[0];
-		const OFFSET_X = -11000, OFFESET_Y = -19000, OFFSET_Z = 0;
-        object.position.set(OFFSET_X, OFFESET_Y, OFFSET_Z);
+		const OFFSET_X = -11000, OFFSET_Y = -19000, OFFSET_Z = 0;
+        object.position.set(OFFSET_X, OFFSET_Y, OFFSET_Z);
 
         this.scene.scenePointCloud.rotation.x = -Math.PI/4;
 
         let camera = this.scene.camera;
-        const CAMERA_Z = 20000;
-        camera.position.set(0, 0, CAMERA_Z);
+
+        if(window.innerHeight > window.innerWidth) {
+            camera.position.set(0, 0, PORTRAIT_CAMERA_Z);
+        } else {
+            camera.position.set(0, 0, LANDSCAPE_CAMERA_Z);
+        }
+
 	}
 
 	zoomOut(zoom) {

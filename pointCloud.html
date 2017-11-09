@@ -23,22 +23,35 @@
       <script src="libs/plasio/vendor/bluebird.js"></script>
 
   </head>
-
   <body>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Point cloud</h4>
+              </div>
+              <div class="modal-body">
+                  The data was obtained from www.liblas.org/samples in compressed las format. It depicts Mt St Helens from November 2004.
+                  The rendering utilsed the excellent Potree library (www.potree.org).
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+              </div>
+          </div>
+      </div>
+  </div>
     <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
 		<div id="potree_render_area"></div>
     </div>
 
-	<div id="info" class="infoPanel">
-		<span>Powered by <a href="http://www.potree.org" target="_blank">Potree</a></span>
-		<img id="infoImage" src="images/info.png">
+	<div id="credits" class="infoPanel">
+		<p>Powered by <a href="http://www.potree.org" target="_blank">Potree</a></p>
 	</div>
 
-	<div id="hoverInfo" class="infoPanel noDisplay">
-		<p>
-			The data was obtained from <br> www.liblas.org/samples in compressed las format. It depicts Mt St Helens from November 2004.
-			The rendering utilsed the excellent Potree library (www.potree.org).
-		</p>
+	<div id="instructions" class="infoPanel">
+		<img id="infoImage" src="images/info.png">
 	</div>
 
 	<div id="title" class="infoPanel centred">
@@ -84,28 +97,44 @@
 			material.shape = Potree.PointShape.SQUARE;
 			//viewer.fitToScreen();
 			viewer.initScene();
-            $('#zoomOut').on("mousedown", () => {
+			let zoomOut = $('#zoomOut');
+			let zoomIn = $('#zoomIn');
+            zoomOut.on("mousedown", () => {
                 viewer.zoomOut(true);
             });
 
-            $('#zoomOut').on("mouseup", () => {
+            zoomOut.on("mouseup", () => {
                 viewer.zoomOut(false);
             });
 
-            $('#zoomIn').on("mousedown", () => {
+            zoomOut.on("touchstart", () => {
+                viewer.zoomOut(true);
+            });
+
+            zoomOut.on("touchend", () => {
+                viewer.zoomOut(false);
+            });
+
+            zoomIn.on("mousedown", () => {
                 viewer.zoomIn(true);
             });
 
-            $('#zoomIn').on("mouseup", () => {
+            zoomIn.on("mouseup", () => {
+                viewer.zoomIn(false);
+            });
+
+            zoomIn.on("touchstart", () => {
+                viewer.zoomIn(true);
+            });
+
+            zoomIn.on("touchend", () => {
                 viewer.zoomIn(false);
             });
 		});
 
-		$('#infoImage').hover( () => {
-			$('#hoverInfo').show();
-		}, () => {
-		    $('#hoverInfo').hide();
-		});
+        $('#instructions').on("click", () => {
+            $('#myModal').modal();
+        });
 
 	</script>
 	
