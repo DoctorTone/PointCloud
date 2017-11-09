@@ -24,6 +24,23 @@
 
   </head>
   <body>
+  <!-- General Modal -->
+  <div class="modal fade" id="mainModal" tabindex="-1" role="dialog" aria-labelledby="mainModalLabel">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="mainModalLabel">Economic Visualisation</h4>
+              </div>
+              <div class="modal-body">
+                  Due to the graphics-intensive nature of the app, it may not function correctly on mobile devices. Enjoy!
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+              </div>
+          </div>
+      </div>
+  </div>
   <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
@@ -71,7 +88,9 @@
 	</div>
 
 	<script>
-	
+
+        $('#mainModal').modal();
+        
 		window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 		
 		viewer.setEDLEnabled(true);
