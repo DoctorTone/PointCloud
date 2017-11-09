@@ -830,12 +830,16 @@ label:hover{
     font-size: 3vw;
 }
 #instructions {
-	bottom: 3%;
+	bottom: 1%;
 	left: 3%;
 	font-size: 2.5vw;
 }
 #instructions img {
-	width: 75%;
+	width: 45%;
+}
+#copyright {
+    left: 22.5%;
+    bottom: 1%;
 }
 #zoomControl {
     right: 1%;
@@ -854,4 +858,34 @@ label:hover{
 }
 #zoomControl img {
     width: 100%;
+}
+/* Media queries */
+@media (min-width: 568px) {
+    #credits {
+        left: 2.5%;
+    }
+    #credits p {
+        font-size: 2.5vw;
+    }
+    #toggleRotContainer {
+        width: 25%;
+        right: 0;
+        top: 20%;
+    }
+    #toggleRotContainer label {
+        font-size: 2.25vw;
+    }
+    #instructions {
+        left: 1%;
+        bottom: 1.5%;
+    }
+    #instructions img {
+        width: 42.5%;
+    }
+    #copyright {
+        left: 12.5%;
+    }
+    #zoomControl {
+        width: 15%;
+    }
 }

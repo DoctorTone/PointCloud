@@ -11,8 +11,8 @@
       <link rel="stylesheet" href="libs/bootstrap/bootstrap-theme.min.css">
       <link rel="stylesheet" type="text/css" href="potree/potree.css">
 
-      <script src="libs/jquery/jquery-3.1.1.js"></script>
-      <script src="libs/three.js/build/three.js"></script>
+      <script src="libs/jquery/jquery-3.1.1.min.js"></script>
+      <script src="libs/three.js/build/three86.min.js"></script>
       <script src="libs/three.js/build/TrackballControls.js?v=0.1"></script>
       <script src="libs/bootstrap/bootstrap.min.js"></script>
       <script src="libs/other/stats.min.js"></script>
@@ -68,7 +68,7 @@
 	</div>
 
 	<div id="instructions" class="infoPanel">
-		<img id="infoImage" src="images/info.png">
+		<img id="infoImage" src="images/infoOrange2.png">
 	</div>
 
 	<div id="title" class="infoPanel centred">
@@ -87,10 +87,16 @@
 		<button id="zoomIn" type="button" class="btn btn-primary"><img src="images/add.png"></button>
 	</div>
 
+      <div id="copyright" class="infoPanel centred">
+          <p>
+              &copy; DRT Software Ltd, 2017
+          </p>
+      </div>
+
 	<script>
 
         $('#mainModal').modal();
-        
+
 		window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 		
 		viewer.setEDLEnabled(true);
