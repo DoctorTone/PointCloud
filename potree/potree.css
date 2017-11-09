@@ -903,3 +903,65 @@ label:hover{
         font-size: 3vw;
     }
 }
+@media (min-width: 768px) {
+    #title {
+        font-size: 6vw;
+    }
+    #credits p {
+        font-size: 2vw;
+    }
+    #zoomControl {
+        width: 12.5%;
+    }
+    #zoomControl p {
+        font-size: 2.5vw;
+    }
+    #toggleRotContainer {
+        width: 22.5%;
+        top: 15%;
+        padding-bottom: 1%;
+    }
+    #instructions img {
+        width: 45%;
+    }
+}
+@media (min-width: 768px) and (orientation: portrait) {
+    #credits p {
+        font-size: 3vw;
+    }
+    #title p {
+        font-size: 8vw;
+    }
+    #zoomControl {
+        width: 17.5%;
+    }
+}
+@media (min-width: 1200px) {
+    #title {
+        top: 2%;
+    }
+    #title p {
+        font-size: 6vw;
+    }
+    #toggleRotContainer {
+        width: 15%;
+    }
+    #toggleRotContainer label {
+        font-size: 1.25vw;
+    }
+    #zoomControl {
+        width: 8%;
+    }
+    #zoomControl p {
+        font-size: 2vw;
+    }
+    #instructions img {
+        width: 60%;
+    }
+    #copyright {
+        left: 7.5%;
+    }
+    #copyright p {
+        font-size: 1.5vw;
+    }
+}
