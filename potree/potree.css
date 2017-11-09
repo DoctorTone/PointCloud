@@ -889,3 +889,17 @@ label:hover{
         width: 15%;
     }
 }
+@media (min-width: 568px) and (orientation: portrait) {
+    #credits p {
+        font-size: 3vw;
+    }
+    #toggleRotContainer {
+        top: 15%;
+    }
+    #zoomControl {
+        width: 20%;
+    }
+    #zoomControl p {
+        font-size: 3vw;
+    }
+}
