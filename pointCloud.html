@@ -14,6 +14,7 @@
       <script src="libs/jquery/jquery-3.1.1.min.js"></script>
       <script src="libs/three.js/build/three86.min.js"></script>
       <script src="libs/three.js/build/TrackballControls.js?v=0.1"></script>
+      <script src="libs/three.js/build/Detector.js?v=0.1"></script>
       <script src="libs/bootstrap/bootstrap.min.js"></script>
       <script src="libs/other/stats.min.js"></script>
       <script src="libs/other/BinaryHeap.js"></script>
@@ -87,6 +88,12 @@
 		<button id="zoomIn" type="button" class="btn btn-primary"><img src="images/add.png"></button>
 	</div>
 
+      <div id="notSupported" class="infoPanel centred noDisplay">
+          <p>
+              <img src="images/warning.png"> Your browser does not support WebGL. Please update to the latest version of Chrome or Firefox.
+          </p>
+      </div>
+
       <div id="copyright" class="infoPanel centred">
           <p>
               &copy; DRT Software Ltd, 2017
@@ -94,6 +101,10 @@
       </div>
 
 	<script>
+        //Make sure we support WebGL
+        if ( !Detector.webgl ) {
+            $('#notSupported').show();
+        }
 
         $('#mainModal').modal();
 
@@ -105,18 +116,17 @@
 		document.title = "";
 		viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
 		viewer.setDescription(``);
-		let elemList = ["title", "instructions", "credits", "toggleRotContainer", "zoomControl", "copyright"];
+		var elemList = ["title", "instructions", "credits", "toggleRotContainer", "zoomControl", "copyright"];
         viewer.stopNotifications(elemList);
 		
-		viewer.loadGUI(() => {
+		viewer.loadGUI(function() {
 			viewer.setLanguage('en');
 			$("#menu_tools").next().show();
-			//viewer.toggleSidebar();
 		});
 		
-		Potree.loadPointCloud("pointclouds/tester/cloud.js", "mountain", e => {
-			let pointcloud = e.pointcloud;
-			let material = pointcloud.material;
+		Potree.loadPointCloud("pointclouds/tester/cloud.js", "mountain", function(e) {
+			var pointcloud = e.pointcloud;
+			var material = pointcloud.material;
 			viewer.scene.addPointCloud(pointcloud);
 			material.pointColorType = Potree.PointColorType.RGB; // any Potree.PointColorType.XXXX 
 			material.size = 1;
@@ -124,42 +134,42 @@
 			material.shape = Potree.PointShape.SQUARE;
 			//viewer.fitToScreen();
 			viewer.initScene();
-			let zoomOut = $('#zoomOut');
-			let zoomIn = $('#zoomIn');
-            zoomOut.on("mousedown", () => {
+			var zoomOut = $('#zoomOut');
+			var zoomIn = $('#zoomIn');
+            zoomOut.on("mousedown", function() {
                 viewer.zoomOut(true);
             });
 
-            zoomOut.on("mouseup", () => {
+            zoomOut.on("mouseup", function() {
                 viewer.zoomOut(false);
             });
 
-            zoomOut.on("touchstart", () => {
+            zoomOut.on("touchstart", function() {
                 viewer.zoomOut(true);
             });
 
-            zoomOut.on("touchend", () => {
+            zoomOut.on("touchend", function() {
                 viewer.zoomOut(false);
             });
 
-            zoomIn.on("mousedown", () => {
+            zoomIn.on("mousedown", function() {
                 viewer.zoomIn(true);
             });
 
-            zoomIn.on("mouseup", () => {
+            zoomIn.on("mouseup", function() {
                 viewer.zoomIn(false);
             });
 
-            zoomIn.on("touchstart", () => {
+            zoomIn.on("touchstart", function() {
                 viewer.zoomIn(true);
             });
 
-            zoomIn.on("touchend", () => {
+            zoomIn.on("touchend", function() {
                 viewer.zoomIn(false);
             });
 		});
 
-        $('#instructions').on("click", () => {
+        $('#instructions').on("click", function() {
             $('#myModal').modal();
         });
 
