@@ -8,7 +8,6 @@
 	  <title>Potree Viewer</title>
 	  
       <link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css">
-      <link rel="stylesheet" href="libs/bootstrap/bootstrap-theme.min.css">
       <link rel="stylesheet" type="text/css" href="potree/potree.css?v=0.7">
 
       <script src="libs/jquery/jquery-3.1.1.min.js"></script>
@@ -101,6 +100,14 @@
       </div>
 
 	<script>
+        function stopNotifications(list) {
+            for(let i=0, numElems=list.length; i<numElems; ++i) {
+                $('#' + list[i]).contextmenu(() => {
+                    return false;
+                });
+            }
+        }
+        
         //Make sure we support WebGL
         if ( !Detector.webgl ) {
             $('#notSupported').show();
@@ -116,8 +123,8 @@
 		document.title = "";
 		viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
 		viewer.setDescription(``);
-		var elemList = ["title", "instructions", "credits", "toggleRotContainer", "zoomControl", "copyright"];
-        viewer.stopNotifications(elemList);
+		let elemList = ["title", "instructions", "credits", "toggleRotContainer", "zoomControl", "copyright"];
+        stopNotifications(elemList);
 		
 		viewer.loadGUI(function() {
 			viewer.setLanguage('en');

@@ -1,7 +1,7 @@
 
-var ZOOM_SPEED = 750;
-var PORTRAIT_CAMERA_Z = 40000;
-var LANDSCAPE_CAMERA_Z = 20000;
+const ZOOM_SPEED = 750;
+const PORTRAIT_CAMERA_Z = 40000;
+const LANDSCAPE_CAMERA_Z = 20000;
 
 function Potree(){
 
@@ -13699,19 +13699,11 @@ Potree.Viewer = class PotreeViewer extends THREE.EventDispatcher{
 		
 		this.background = bg;
 		this.dispatchEvent({"type": "background_changed", "viewer": this});
-	}
+	};
 	
 	setDescription(value){
 		$('#potree_description')[0].innerHTML = value;
 	};
-
-    stopNotifications(list) {
-        for(let i=0, numElems=list.length; i<numElems; ++i) {
-            $('#' + list[i]).contextmenu(() => {
-                return false;
-            });
-        }
-    };
 
 	setNavigationMode(value){
 		this.scene.view.navigationMode = value;
