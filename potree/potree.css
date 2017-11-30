@@ -834,12 +834,13 @@ label:hover{
 }
 #instructions {
 	bottom: 1%;
-	left: 3%;
+	left: 1%;
+	width: 12.5%;
 	font-size: 2.5vw;
     -webkit-touch-callout: none;
 }
 #instructions img {
-	width: 45%;
+	width: 100%;
 }
 #copyright {
     left: 22.5%;
@@ -895,11 +896,7 @@ label:hover{
         font-size: 2.25vw;
     }
     #instructions {
-        left: 1%;
-        bottom: 1.5%;
-    }
-    #instructions img {
-        width: 42.5%;
+        width: 7%;
     }
     #copyright {
         left: 12.5%;
@@ -935,6 +932,9 @@ label:hover{
 	#notSupported p img {
 		width: 25%;
 	}
+	#instructions {
+		width: 10%;
+	}
 }
 @media (min-width: 768px) {
     #title {
@@ -953,9 +953,6 @@ label:hover{
         width: 22.5%;
         top: 15%;
         padding-bottom: 1%;
-    }
-    #instructions img {
-        width: 45%;
     }
 }
 @media (min-width: 768px) and (orientation: portrait) {
@@ -995,8 +992,8 @@ label:hover{
     #zoomControl p {
         font-size: 2vw;
     }
-    #instructions img {
-        width: 60%;
+    #instructions {
+        width: 5%;
     }
     #copyright {
         left: 7.5%;
@@ -1019,5 +1016,8 @@ label:hover{
 	}
 	#notSupported p img {
 		width: 12.5%;
+	}
+	#instructions {
+		width: 4.5%;
 	}
 }
