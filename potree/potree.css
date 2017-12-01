@@ -843,8 +843,10 @@ label:hover{
 	width: 100%;
 }
 #copyright {
-    left: 22.5%;
-    bottom: 1%;
+    left: 15%;
+    bottom: 1.5%;
+    color: white;
+    font-size: 3.5vw;
     -webkit-touch-callout: none;
 }
 #zoomControl {
@@ -899,7 +901,8 @@ label:hover{
         width: 7%;
     }
     #copyright {
-        left: 12.5%;
+        font-size: 2.25vw;
+        left: 11%;
     }
     #zoomControl {
         width: 15%;
@@ -935,6 +938,10 @@ label:hover{
 	#instructions {
 		width: 10%;
 	}
+    #copyright {
+        font-size: 2.75vw;
+        left: 12.5%;
+    }
 }
 @media (min-width: 768px) {
     #title {
@@ -954,6 +961,10 @@ label:hover{
         top: 15%;
         padding-bottom: 1%;
     }
+    #copyright {
+        font-size: 2vw;
+        left: 10%;
+    }
 }
 @media (min-width: 768px) and (orientation: portrait) {
     #credits p {
@@ -972,6 +983,10 @@ label:hover{
 	#notSupported p img {
 		width: 30%;
 	}
+    #copyright {
+        font-size: 2.5vw;
+        left: 12%;
+    }
 }
 @media (min-width: 1200px) {
     #title {
@@ -997,8 +1012,6 @@ label:hover{
     }
     #copyright {
         left: 7.5%;
-    }
-    #copyright p {
         font-size: 1.5vw;
     }
 	#notSupported {
@@ -1020,4 +1033,7 @@ label:hover{
 	#instructions {
 		width: 4.5%;
 	}
+    #copyright {
+        font-size: 1.25vw;
+    }
 }
