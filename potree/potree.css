@@ -262,6 +262,7 @@ body{
 	width: 		100%;
 	height: 	100%;
 	overflow:	hidden;
+	line-height: unset;
 }
 
 .axis {
@@ -989,8 +990,8 @@ label:hover{
         font-size: 6vw;
     }
     #toggleRotContainer {
-		width: 15%;
-		font-size: 1.1vw;
+		width: 10%;
+		font-size: 1vw;
     }
     #zoomControl {
         width: 8%;
@@ -1027,4 +1028,7 @@ label:hover{
     #copyright {
         font-size: 1.25vw;
     }
+}
+.custom-control-input {
+	position: relative;
 }
