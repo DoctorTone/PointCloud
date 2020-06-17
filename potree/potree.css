@@ -991,8 +991,9 @@ label:hover{
         font-size: 6vw;
     }
     #toggleRotContainer {
-		width: 15%;
-		font-size: 1.1vw;
+		width: 10%;
+		font-size: 1vw;
+		line-height: 1.5;
     }
     #zoomControl {
         width: 8%;
@@ -1028,5 +1029,11 @@ label:hover{
 	}
     #copyright {
         font-size: 1.25vw;
-    }
+	}
+	#toggleRotContainer {
+		line-height: 1.25;
+	}
+}
+.custom-control-input {
+	position: relative;
 }

@@ -7,14 +7,14 @@
 
 	  <title>Potree Viewer</title>
 	  
-      <link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css">
+      <link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css?v=0.1">
       <link rel="stylesheet" type="text/css" href="potree/potree.css?v=0.10">
 
       <script src="libs/jquery/jquery-3.1.1.min.js"></script>
       <script src="libs/three.js/build/three86.min.js"></script>
       <script src="libs/three.js/build/TrackballControls.js?v=0.1"></script>
       <script src="libs/three.js/build/Detector.js?v=0.1"></script>
-      <script src="libs/bootstrap/bootstrap.min.js"></script>
+      <script src="libs/bootstrap/bootstrap.min.js?v=0.1"></script>
       <script src="libs/other/stats.min.js"></script>
       <script src="libs/other/BinaryHeap.js"></script>
       <script src="libs/proj4/proj4.js"></script>
@@ -29,8 +29,8 @@
       <div class="modal-dialog" role="document">
           <div class="modal-content">
               <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="mainModalLabel">Point Cloud</h4>
+                <h4 class="modal-title" id="mainModalLabel">Point Cloud</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               </div>
               <div class="modal-body">
                   Due to the graphics-intensive nature of the app, it may not function correctly on mobile devices. Enjoy!
@@ -46,8 +46,8 @@
       <div class="modal-dialog" role="document">
           <div class="modal-content">
               <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="myModalLabel">Point cloud</h4>
+                <h4 class="modal-title" id="myModalLabel">Point cloud</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               </div>
               <div class="modal-body">
                   The data was obtained from www.liblas.org/samples in compressed las format. It depicts Mt St Helens from November 2004.
@@ -74,10 +74,11 @@
 	<div id="title" class="infoPanel centred">
 		<p>Mount St Helens</p>
 	</div>
-
-	<div class="infoPanel centred" id="toggleRotContainer">
-        <input id="toggleRot" type="checkbox" checked>Toggle Rotation
-	</div>
+    
+    <div class="infoPanel custom-control custom-switch" id="toggleRotContainer">
+        <input type="checkbox" class="custom-control-input ml-3" id="toggleRot" checked>
+        <label class="custom-control-label" for="toggleRot">Rotation</label>
+      </div>
 
 	<div id="zoomControl" class="infoPanel centred">
 		<p>Zoom</p>
