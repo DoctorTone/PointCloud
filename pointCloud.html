@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85674673-2"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-85674673-2');
+      </script>
 	  <meta charset="UTF-8">
 	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
@@ -8,7 +17,7 @@
 	  <title>Potree Viewer</title>
 	  
       <link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css?v=0.2">
-      <link rel="stylesheet" type="text/css" href="potree/potree.css?v=0.11">
+      <link rel="stylesheet" type="text/css" href="potree/potree.css?v=0.12">
 
       <script src="libs/jquery/jquery-3.1.1.min.js"></script>
       <script src="libs/three.js/build/three86.min.js"></script>
@@ -33,7 +42,9 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               </div>
               <div class="modal-body">
-                  Due to the graphics-intensive nature of the app, it may not function correctly on mobile devices. Enjoy!
+                  Due to the graphics-intensive nature of the app, it may not function correctly on mobile devices.<br>
+                  Check out the <a href="https://www.youtube.com/channel/UCNYHLpd8oKLoE2xw49ZX1nQ?" target="_blank">You Tube video</a>.<br>
+                  Enjoy!
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
@@ -51,7 +62,8 @@
               </div>
               <div class="modal-body">
                   The data was obtained from www.liblas.org/samples in compressed las format. It depicts Mt St Helens from November 2004.
-                  The rendering utilsed the excellent Potree library (www.potree.org).
+                  The rendering utilsed the excellent Potree library (www.potree.org).<br>
+                  Check out the <a href="https://www.youtube.com/channel/UCNYHLpd8oKLoE2xw49ZX1nQ?" target="_blank">You Tube video</a>
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
